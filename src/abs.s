@@ -22,7 +22,9 @@ abs:
     bge t0, zero, done
 
     # TODO: Add your own implementation
-
+    li t1, 0
+    sub t0, t1, t0
+    sw t0, 0(a0)
 done:
     # Epilogue
     jr ra
