@@ -117,10 +117,8 @@ inner_loop_start:
 inner_loop_end:
     # TODO: Add your own implementation
     mv t2, a2
-loop:
-    addi s3, s3, 4
-    addi t2, t2, -1
-    bnez t2, loop    
+    slli t2, t2, 2
+    add s3, s3, t2
     
     addi s0, s0, 1
     j outer_loop_start
