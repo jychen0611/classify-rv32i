@@ -76,6 +76,23 @@ read_matrix:
 
     # mul s1, t1, t2   # s1 is number of elements
     # FIXME: Replace 'mul' with your own implementation
+    # Multiply t1 by t2 without using mul ########################################
+    #   - multiplicand: t1
+    #   - multiplier: t2
+    #   - result: s1
+my_mul: 
+    li t4, 32
+    li s1, 0
+my_mul_loop:
+    andi t5, t2, 1
+    srli t2, t2, 1
+    beqz t5, my_mul_skip
+    add s1, s1, t1
+my_mul_skip:
+    slli t1, t1, 1
+    addi t4, t4, -1
+    bnez t4, my_mul_loop
+    ################################################################################
 
     slli t3, s1, 2
     sw t3, 24(sp)    # size in bytes
