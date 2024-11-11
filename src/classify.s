@@ -167,6 +167,24 @@ classify:
     lw t0, 0(s3)
     lw t1, 0(s8)
     # mul a0, t0, t1 # FIXME: Replace 'mul' with your own implementation
+    # Multiply t0 by t1 without using mul ########################################
+    #   - multiplicand: t0
+    #   - multiplier: t1
+    #   - result: a0
+my_mul_1: 
+    li t4, 32
+    li a0, 0
+my_mul_loop_1:
+    andi t5, t1, 1
+    srli t1, t1, 1
+    beqz t5, my_mul_skip_1
+    add a0, a0, t0
+my_mul_skip_1:
+    slli t0, t0, 1
+    addi t4, t4, -1
+    bnez t4, my_mul_loop_1
+    ################################################################################
+
     slli a0, a0, 2
     jal malloc 
     beq a0, x0, error_malloc
@@ -205,7 +223,23 @@ classify:
     lw t1, 0(s8)
     # mul a1, t0, t1 # length of h array and set it as second argument
     # FIXME: Replace 'mul' with your own implementation
-    
+    # Multiply t0 by t1 without using mul ########################################
+    #   - multiplicand: t0
+    #   - multiplier: t1
+    #   - result: a1
+my_mul_2: 
+    li t4, 32
+    li a1, 0
+my_mul_loop_2:
+    andi t5, t1, 1
+    srli t1, t1, 1
+    beqz t5, my_mul_skip_2
+    add a1, a1, t0
+my_mul_skip_2:
+    slli t0, t0, 1
+    addi t4, t4, -1
+    bnez t4, my_mul_loop_2
+    ################################################################################
     jal relu
     
     lw a0, 0(sp)
@@ -227,6 +261,23 @@ classify:
     lw t0, 0(s3)
     lw t1, 0(s6)
     # mul a0, t0, t1 # FIXME: Replace 'mul' with your own implementation
+    # Multiply t0 by t1 without using mul ########################################
+    #   - multiplicand: t0
+    #   - multiplier: t1
+    #   - result: a0
+my_mul_3: 
+    li t4, 32
+    li a0, 0
+my_mul_loop_3:
+    andi t5, t1, 1
+    srli t1, t1, 1
+    beqz t5, my_mul_skip_3
+    add a0, a0, t0
+my_mul_skip_3:
+    slli t0, t0, 1
+    addi t4, t4, -1
+    bnez t4, my_mul_loop_3
+    ################################################################################
     slli a0, a0, 2
     jal malloc 
     beq a0, x0, error_malloc
@@ -286,9 +337,25 @@ classify:
     mv a0, s10 # load o array into first arg
     lw t0, 0(s3)
     lw t1, 0(s6)
-    mul a1, t0, t1 # load length of array into second arg
+    # mul a1, t0, t1 # load length of array into second arg
     # FIXME: Replace 'mul' with your own implementation
-    
+    # Multiply t0 by t1 without using mul ########################################
+    #   - multiplicand: t0
+    #   - multiplier: t1
+    #   - result: a1
+my_mul_4: 
+    li t4, 32
+    li a1, 0
+my_mul_loop_4:
+    andi t5, t1, 1
+    srli t1, t1, 1
+    beqz t5, my_mul_skip_4
+    add a1, a1, t0
+my_mul_skip_4:
+    slli t0, t0, 1
+    addi t4, t4, -1
+    bnez t4, my_mul_loop_4
+    ################################################################################
     jal argmax
     
     mv t0, a0 # move return value of argmax into t0
