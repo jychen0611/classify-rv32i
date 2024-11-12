@@ -1,5 +1,3 @@
-.import my_mul.s
-
 .globl dot
 
 .text
