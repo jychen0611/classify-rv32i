@@ -68,7 +68,6 @@ write_matrix:
     #   - multiplier: s3
     #   - result: s4
 my_mul: 
-    li t1, 32
     li s4, 0
 my_mul_loop:
     andi t2, s3, 1
@@ -77,8 +76,7 @@ my_mul_loop:
     add s4, s4, s2
 my_mul_skip:
     slli s2, s2, 1
-    addi t1, t1, -1
-    bnez t1, my_mul_loop
+    bnez s3, my_mul_loop
     ################################################################################
 
     # write matrix data to file

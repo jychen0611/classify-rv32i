@@ -81,7 +81,6 @@ read_matrix:
     #   - multiplier: t2
     #   - result: s1
 my_mul: 
-    li t4, 32
     li s1, 0
 my_mul_loop:
     andi t5, t2, 1
@@ -90,8 +89,7 @@ my_mul_loop:
     add s1, s1, t1
 my_mul_skip:
     slli t1, t1, 1
-    addi t4, t4, -1
-    bnez t4, my_mul_loop
+    bnez t2, my_mul_loop
     ################################################################################
 
     slli t3, s1, 2

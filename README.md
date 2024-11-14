@@ -126,7 +126,7 @@ test_write_fail_fopen (__main__.TestWriteMatrix.test_write_fail_fopen) ... ok
 test_write_fail_fwrite (__main__.TestWriteMatrix.test_write_fail_fwrite) ... ok
 
 ----------------------------------------------------------------------
-Ran 46 tests in 97.417s
+Ran 46 tests in 45.286s
 
 OK
 ```

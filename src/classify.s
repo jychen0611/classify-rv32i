@@ -172,7 +172,6 @@ classify:
     #   - multiplier: t1
     #   - result: a0
 my_mul_1: 
-    li t4, 32
     li a0, 0
 my_mul_loop_1:
     andi t5, t1, 1
@@ -181,8 +180,7 @@ my_mul_loop_1:
     add a0, a0, t0
 my_mul_skip_1:
     slli t0, t0, 1
-    addi t4, t4, -1
-    bnez t4, my_mul_loop_1
+    bnez t1, my_mul_loop_1
     ################################################################################
 
     slli a0, a0, 2
@@ -228,7 +226,6 @@ my_mul_skip_1:
     #   - multiplier: t1
     #   - result: a1
 my_mul_2: 
-    li t4, 32
     li a1, 0
 my_mul_loop_2:
     andi t5, t1, 1
@@ -237,8 +234,7 @@ my_mul_loop_2:
     add a1, a1, t0
 my_mul_skip_2:
     slli t0, t0, 1
-    addi t4, t4, -1
-    bnez t4, my_mul_loop_2
+    bnez t1, my_mul_loop_2
     ################################################################################
     jal relu
     
@@ -266,7 +262,6 @@ my_mul_skip_2:
     #   - multiplier: t1
     #   - result: a0
 my_mul_3: 
-    li t4, 32
     li a0, 0
 my_mul_loop_3:
     andi t5, t1, 1
@@ -275,8 +270,7 @@ my_mul_loop_3:
     add a0, a0, t0
 my_mul_skip_3:
     slli t0, t0, 1
-    addi t4, t4, -1
-    bnez t4, my_mul_loop_3
+    bnez t1, my_mul_loop_3
     ################################################################################
     slli a0, a0, 2
     jal malloc 
@@ -344,7 +338,6 @@ my_mul_skip_3:
     #   - multiplier: t1
     #   - result: a1
 my_mul_4: 
-    li t4, 32
     li a1, 0
 my_mul_loop_4:
     andi t5, t1, 1
@@ -353,8 +346,7 @@ my_mul_loop_4:
     add a1, a1, t0
 my_mul_skip_4:
     slli t0, t0, 1
-    addi t4, t4, -1
-    bnez t4, my_mul_loop_4
+    bnez t1, my_mul_loop_4
     ################################################################################
     jal argmax
     
